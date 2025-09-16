@@ -48,6 +48,9 @@ vim.opt.isfname:append("@-@")
 -- Update time
 vim.opt.updatetime = 50
 
+-- Environment Variables
+vim.env.LC_ALL = 'en_US.UTF-8'
+
 -- Auto-refresh files
 vim.o.autoread = true
 vim.api.nvim_create_autocmd({ "FocusGained", "BufEnter", "CursorHold" }, {

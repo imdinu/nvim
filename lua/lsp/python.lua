@@ -23,8 +23,15 @@ end
 lspconfig.ruff.setup({
   cmd = { prefer_venv("ruff"), "server" },
   -- reads pyproject.toml / ruff.toml automatically; add overrides here if you want:
-  init_options = { settings = { -- e.g., lineLength = 120
-  }},
+  init_options = { settings = {
+    line_length = 120,
+    }
+  },
+  settings = {
+    ruff = {
+      locale = "en",
+    },
+  },
   on_attach = function(client, _)
     -- Let basedpyright handle hover/signature
     client.server_capabilities.hoverProvider = false
@@ -32,4 +39,6 @@ lspconfig.ruff.setup({
 })
 
 -- Your type checker stays the same (basedpyright / pyright)
--- lspconfig.basedpyright.setup({ ... })
+lspconfig.basedpyright.setup({
+  language = 'en',
+})
